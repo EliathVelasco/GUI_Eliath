@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5416e54-0eed-4ef0-a460-15fe96241d1c" name="Changes" comment="Hola mundo">
+    <list default="true" id="f5416e54-0eed-4ef0-a460-15fe96241d1c" name="Changes" comment="Layout v0.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/tablero.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/tablero.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/tablero_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/tablero_dark.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,7 +30,8 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Usuario-PC/Desktop/components-SplitPaneDemo2Project"
   }
 }]]></component>
   <component name="RunManager">
@@ -55,7 +56,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1658775776904</updated>
-      <workItem from="1658775778237" duration="2676000" />
+      <workItem from="1658775778237" duration="2873000" />
+      <workItem from="1658778727968" duration="2170000" />
     </task>
     <task id="LOCAL-00001" summary="Hola mundo">
       <created>1658775915675</created>
@@ -64,7 +66,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658775915675</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Layout v0.1">
+      <created>1658778554321</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1658778554321</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Layout v0.1">
+      <created>1658778650185</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658778650185</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,6 +100,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Hola mundo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hola mundo" />
+    <MESSAGE value="Layout v0.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Layout v0.1" />
   </component>
 </project>

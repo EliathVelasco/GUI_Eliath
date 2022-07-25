@@ -10,7 +10,9 @@ import java.io.IOException;
 public class GUI implements ActionListener {
     private final JFrame frameInicio = new JFrame("Chess");
     private final JPanel panelInicio = new JPanel();
-    private final JFrame framePartida = new JFrame();
+    private final JFrame framePartida = new JFrame("Partida");
+    private final JFrame frameCargarPartida = new JFrame("Cargar Partida");
+    private final JPanel panelCargarPartida = new JPanel();
     private final JPanel panelPartida = new JPanel();
     private final BufferedImage imagenInicio = ImageIO.read(new File("img/inicio.png"));
     private final BufferedImage tablero = ImageIO.read(new File("img/tablero.png"));
@@ -37,42 +39,45 @@ public class GUI implements ActionListener {
     private final JLabel labelTablero;
     private final JLabel[][] labelsDePiezasNegras;
     private JLabel[][] labelsDePiezasBlancas;
+    private JButton iniciarPartida = new JButton("Iniciar partida");
+    private JButton cargarPartida = new JButton("Cargar partida");
+    private JCheckBox darkMode = new JCheckBox("◑");
+
     public GUI() throws IOException {
 
         panelInicio.setLayout(new FlowLayout());
         panelPartida.setLayout(null);
+        panelCargarPartida.setLayout(new FlowLayout());
 
         frameInicio.add(panelInicio, BorderLayout.CENTER);
         framePartida.add(panelPartida, BorderLayout.CENTER);
+        frameCargarPartida.add(panelCargarPartida);
 
-        String[] objetoListaHistorial = {"a2a3", "a2a3","a2a3","a2a3","a2a3", "a2a3","a2a3","a2a3","a2a3","a2a3", "a2a3","a2a3","a2a3","a2a3", "a2a3","a2a3","a2a3","a2a3","a2a3", "a2a3","a2a3","a2a3","a2a3", "a2a3","a2a3","a2a3","a2a3"};
+        String[] objetoListaHistorial = {"a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3", "a2a3"};
         JList listaHistorial = new JList(objetoListaHistorial);
 
         JScrollPane scrollHistorial = new JScrollPane();
         scrollHistorial.setViewportView(listaHistorial);
         listaHistorial.setLayoutOrientation(JList.VERTICAL);
         panelPartida.add(scrollHistorial);
-        scrollHistorial.setBounds(590,130,290,330);
+        scrollHistorial.setBounds(590, 130, 290, 330);
 
         JLabel textoHistorial = new JLabel("Historial de Jugadas");
-        textoHistorial.setFont(new Font("Times New Roman",Font.PLAIN,28));
-        textoHistorial.setBounds(625,85,350,40);
+        textoHistorial.setFont(new Font("Times New Roman", Font.PLAIN, 28));
+        textoHistorial.setBounds(625, 85, 350, 40);
         panelPartida.add(textoHistorial);
-
         JButton guardarYSalir = new JButton("Guardar y salir");
-        JCheckBox darkMode = new JCheckBox("◑");
+
         JLabel turnoActual = new JLabel("Turno actual: ");
-        turnoActual.setBounds(590,495,290,40);
-        guardarYSalir.setBounds(590,525,290,40);
-        darkMode.setBounds(675,585,130,40);
+        turnoActual.setBounds(590, 495, 290, 40);
+        guardarYSalir.setBounds(590, 525, 290, 40);
+        darkMode.setBounds(675, 585, 130, 40);
         panelPartida.add(guardarYSalir);
         panelPartida.add(darkMode);
         panelPartida.add(turnoActual);
 
-
-        JButton iniciarPartida = new JButton("Iniciar partida");
         iniciarPartida.addActionListener(this);
-        JButton cargarPartida = new JButton("Cargar partida");
+
         cargarPartida.addActionListener(this);
 
         panelInicio.add(iniciarPartida);
@@ -127,7 +132,7 @@ public class GUI implements ActionListener {
         }
 
         JLabel labelPoint = new JLabel(new ImageIcon(point));
-        labelPoint.setBounds(93,240,60,60);
+        labelPoint.setBounds(93, 240, 60, 60);
         panelPartida.add(labelPoint);
 
         //Paneles y frames
@@ -136,6 +141,8 @@ public class GUI implements ActionListener {
         frameInicio.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameInicio.pack();
         framePartida.pack();
+        frameCargarPartida.add(labelPoint);
+        frameCargarPartida.pack();
         frameInicio.setVisible(true);
 
     }
@@ -146,7 +153,14 @@ public class GUI implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        frameInicio.setVisible(false);
-        framePartida.setVisible(true);
+        if (e.getSource() == iniciarPartida) {
+            frameInicio.setVisible(false);
+            framePartida.setVisible(true);
+        } else if (e.getSource() == cargarPartida) {
+            frameInicio.setVisible(false);
+            frameCargarPartida.setVisible(true);
+        }else if(e.getSource()==darkMode){
+
+        }
     }
 }

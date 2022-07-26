@@ -1,10 +1,9 @@
-import javax.imageio.ImageIO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
+
 import java.io.IOException;
 
 public class GUI implements ActionListener {
@@ -43,7 +42,7 @@ public class GUI implements ActionListener {
     private JButton cargarPartida = new JButton("Cargar partida");
     private JCheckBox darkMode = new JCheckBox("◑");
 
-    public GUI() throws IOException {
+    public GUI(){
 
         panelInicio.setLayout(new FlowLayout());
         panelPartida.setLayout(null);
@@ -147,7 +146,7 @@ public class GUI implements ActionListener {
 
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         new GUI();
     }
 

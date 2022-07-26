@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f5416e54-0eed-4ef0-a460-15fe96241d1c" name="Changes" comment="Layout v0.1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/tablero_dark.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/tablero_dark.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,15 +24,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Usuario-PC/Desktop/components-SplitPaneDemo2Project"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario-PC/Desktop/components-SplitPaneDemo2Project&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="GUI" />
@@ -57,7 +56,9 @@
       <option name="presentableId" value="Default" />
       <updated>1658775776904</updated>
       <workItem from="1658775778237" duration="2873000" />
-      <workItem from="1658778727968" duration="2170000" />
+      <workItem from="1658778727968" duration="5289000" />
+      <workItem from="1658852379505" duration="11000" />
+      <workItem from="1658852651015" duration="705000" />
     </task>
     <task id="LOCAL-00001" summary="Hola mundo">
       <created>1658775915675</created>

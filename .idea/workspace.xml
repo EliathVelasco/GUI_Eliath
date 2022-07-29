@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5416e54-0eed-4ef0-a460-15fe96241d1c" name="Changes" comment="Layout v0.1">
+    <list default="true" id="f5416e54-0eed-4ef0-a460-15fe96241d1c" name="Changes" comment="Exception">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
     </list>
@@ -11,6 +11,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="fixBufferedImage" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -59,6 +64,12 @@
       <workItem from="1658778727968" duration="5289000" />
       <workItem from="1658852379505" duration="11000" />
       <workItem from="1658852651015" duration="705000" />
+      <workItem from="1658866706752" duration="92000" />
+      <workItem from="1658888319134" duration="74000" />
+      <workItem from="1658937758529" duration="707000" />
+      <workItem from="1659039746549" duration="74000" />
+      <workItem from="1659106416992" duration="701000" />
+      <workItem from="1659109512328" duration="1903000" />
     </task>
     <task id="LOCAL-00001" summary="Hola mundo">
       <created>1658775915675</created>
@@ -81,7 +92,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658778650185</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Exception">
+      <created>1658853647567</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1658853647567</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,6 +120,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Hola mundo" />
     <MESSAGE value="Layout v0.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Layout v0.1" />
+    <MESSAGE value="Exception" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exception" />
   </component>
 </project>

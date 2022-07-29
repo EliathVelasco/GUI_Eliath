@@ -1,10 +1,7 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import java.io.IOException;
 
 public class GUI implements ActionListener {
     private final JFrame frameInicio = new JFrame("Chess");
@@ -15,6 +12,7 @@ public class GUI implements ActionListener {
     private final JPanel panelPartida = new JPanel();
     private final ImageIcon imagenInicio = new ImageIcon("img/inicio.png");
     private final ImageIcon tablero = new ImageIcon("img/tablero.png");
+    private final ImageIcon tablero_dark = new ImageIcon("img/tablero_dark.png");
     //Imágenes de Piezas negras
     private final ImageIcon torreNegra = new ImageIcon("img/torreNegra.png");
     private final ImageIcon alfilNegro = new ImageIcon("img/alfilNegro.png");
@@ -76,7 +74,7 @@ public class GUI implements ActionListener {
         panelPartida.add(turnoActual);
 
         iniciarPartida.addActionListener(this);
-
+        darkMode.addActionListener(this);
         cargarPartida.addActionListener(this);
 
         panelInicio.add(iniciarPartida);
@@ -158,8 +156,12 @@ public class GUI implements ActionListener {
         } else if (e.getSource() == cargarPartida) {
             frameInicio.setVisible(false);
             frameCargarPartida.setVisible(true);
-        }else if(e.getSource()==darkMode){
-
+        } else if(e.getSource()==darkMode){
+            if(labelTablero.getIcon() == tablero){
+                labelTablero.setIcon(tablero_dark);
+            }else{
+                labelTablero.setIcon(tablero);
+            }
         }
     }
 }

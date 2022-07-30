@@ -2,45 +2,41 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 public class GUI implements ActionListener {
     private final JFrame frameInicio = new JFrame("Chess");
-    private final JPanel panelInicio = new JPanel();
     private final JFrame framePartida = new JFrame("Partida");
     private final JFrame frameCargarPartida = new JFrame("Cargar Partida");
-    private final JPanel panelCargarPartida = new JPanel();
-    private final JPanel panelPartida = new JPanel();
-    private final ImageIcon imagenInicio = new ImageIcon("img/inicio.png");
+    private final JButton iniciarPartida = new JButton("Iniciar partida");
+    private final JButton cargarPartida = new JButton("Cargar partida");
+    private final JCheckBox darkMode = new JCheckBox("◑");
+    private final JLabel labelTablero;
     private final ImageIcon tablero = new ImageIcon("img/tablero.png");
     private final ImageIcon tablero_dark = new ImageIcon("img/tablero_dark.png");
-    //Imágenes de Piezas negras
-    private final ImageIcon torreNegra = new ImageIcon("img/torreNegra.png");
-    private final ImageIcon alfilNegro = new ImageIcon("img/alfilNegro.png");
-    private final ImageIcon caballoNegro = new ImageIcon("img/caballoNegro.png");
-    private final ImageIcon peonNegro = new ImageIcon("img/peonNegro.png");
-    private final ImageIcon reyNegro = new ImageIcon("img/reyNegro.png");
-    private final ImageIcon damaNegra = new ImageIcon("img/damaNegra.png");
-    //Imagen punto de movimiento
-    private final ImageIcon point = new ImageIcon("img/point.png");
-
-    //Imágenes de Piezas blancas
-    private final ImageIcon reyBlanco = new ImageIcon("img/reyBlanco.png");
-    private final ImageIcon damaBlanca = new ImageIcon("img/damaBlanca.png");
-    private final ImageIcon caballoBlanco = new ImageIcon("img/caballoBlanco.png");
-    private final ImageIcon alfilBlanco = new ImageIcon("img/alfilBlanco.png");
-    private final ImageIcon peonBlanco = new ImageIcon("img/peonBlanco.png");
-    private final ImageIcon torreBlanca = new ImageIcon("img/torreBlanca.png");
-    private final JLabel label;
-
-    //Label para el tablero
-    private final JLabel labelTablero;
-    private final JLabel[][] labelsDePiezasNegras;
-    private JLabel[][] labelsDePiezasBlancas;
-    private JButton iniciarPartida = new JButton("Iniciar partida");
-    private JButton cargarPartida = new JButton("Cargar partida");
-    private JCheckBox darkMode = new JCheckBox("◑");
-
     public GUI(){
+        //Paneles
+        JPanel panelInicio = new JPanel();
+        JPanel panelCargarPartida = new JPanel();
+        JPanel panelPartida = new JPanel();
+
+        //Imágenes misceláneas
+        ImageIcon imagenInicio = new ImageIcon("img/inicio.png");
+        ImageIcon point = new ImageIcon("img/point.png");
+
+        //Imágenes de piezas blancas
+        ImageIcon torreBlanca = new ImageIcon("img/torreBlanca.png");
+        ImageIcon peonBlanco = new ImageIcon("img/peonBlanco.png");
+        ImageIcon alfilBlanco = new ImageIcon("img/alfilBlanco.png");
+        ImageIcon caballoBlanco = new ImageIcon("img/caballoBlanco.png");
+        ImageIcon damaBlanca = new ImageIcon("img/damaBlanca.png");
+        ImageIcon reyBlanco = new ImageIcon("img/reyBlanco.png");
+
+        //Imágenes de piezas negras
+        ImageIcon torreNegra = new ImageIcon("img/torreNegra.png");
+        ImageIcon alfilNegro = new ImageIcon("img/alfilNegro.png");
+        ImageIcon caballoNegro = new ImageIcon("img/caballoNegro.png");
+        ImageIcon peonNegro = new ImageIcon("img/peonNegro.png");
+        ImageIcon reyNegro = new ImageIcon("img/reyNegro.png");
+        ImageIcon damaNegra = new ImageIcon("img/damaNegra.png");
 
         panelInicio.setLayout(new FlowLayout());
         panelPartida.setLayout(null);
@@ -79,12 +75,12 @@ public class GUI implements ActionListener {
 
         panelInicio.add(iniciarPartida);
         panelInicio.add(cargarPartida);
-        label = new JLabel(imagenInicio);
+        JLabel label = new JLabel(imagenInicio);
         labelTablero = new JLabel(tablero);
         labelTablero.setBounds(10, 30, 528, 660);
 
         //Display de las piezas
-        this.labelsDePiezasNegras = new JLabel[2][8];
+        JLabel[][] labelsDePiezasNegras = new JLabel[2][8];
 
         labelsDePiezasNegras[0][0] = new JLabel(torreNegra);
         labelsDePiezasNegras[0][1] = new JLabel(caballoNegro);
@@ -95,7 +91,8 @@ public class GUI implements ActionListener {
         labelsDePiezasNegras[0][6] = new JLabel(caballoNegro);
         labelsDePiezasNegras[0][7] = new JLabel(torreNegra);
 
-        this.labelsDePiezasBlancas = new JLabel[2][8];
+        //Arrays para labels de piezas
+        JLabel[][] labelsDePiezasBlancas = new JLabel[2][8];
 
         labelsDePiezasBlancas[0][0] = new JLabel(torreBlanca);
         labelsDePiezasBlancas[0][1] = new JLabel(caballoBlanco);

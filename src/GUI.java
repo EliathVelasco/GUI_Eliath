@@ -12,15 +12,19 @@ public class GUI implements ActionListener {
     private final JLabel labelTablero;
     private final ImageIcon tablero = new ImageIcon("img/tablero.png");
     private final ImageIcon tablero_dark = new ImageIcon("img/tablero_dark.png");
+
+    //Botón prueba
+    private final JButton botonDePieza = new JButton("Hola");
+    private final ImageIcon point = new ImageIcon("img/point.png");
+    private final JPanel panelPartida = new JPanel();
+
     public GUI(){
         //Paneles
         JPanel panelInicio = new JPanel();
         JPanel panelCargarPartida = new JPanel();
-        JPanel panelPartida = new JPanel();
 
         //Imágenes misceláneas
         ImageIcon imagenInicio = new ImageIcon("img/inicio.png");
-        ImageIcon point = new ImageIcon("img/point.png");
 
         //Imágenes de piezas blancas
         ImageIcon torreBlanca = new ImageIcon("img/torreBlanca.png");
@@ -106,7 +110,6 @@ public class GUI implements ActionListener {
         for (int i = 0; i < 8; i++) {
             labelsDePiezasNegras[0][i].setBounds((33 + 60 * i), 120, 60, 60);
             panelPartida.add(labelsDePiezasNegras[0][i]);
-
         }
         for (int i = 0; i < 8; i++) {
             labelsDePiezasNegras[1][i] = new JLabel(peonNegro);
@@ -117,28 +120,29 @@ public class GUI implements ActionListener {
         for (int i = 0; i < 8; i++) {
             labelsDePiezasBlancas[0][i].setBounds((33 + 60 * i), 540, 60, 60);
             panelPartida.add(labelsDePiezasBlancas[0][i]);
-
         }
         for (int i = 0; i < 8; i++) {
             labelsDePiezasBlancas[1][i] = new JLabel((peonBlanco));
-            labelsDePiezasBlancas[1][i].setBounds((33 + 60 * i), 480, 60, 60);
             panelPartida.add(labelsDePiezasBlancas[1][i]);
+            labelsDePiezasBlancas[1][i].setBounds((33 + 60 * i), 480, 60, 60);
         }
 
-        JLabel labelPoint = new JLabel(point);
-        labelPoint.setBounds(93, 240, 60, 60);
-        panelPartida.add(labelPoint);
+       botonDePieza.setOpaque(false);
+        botonDePieza.setContentAreaFilled(false);
+       botonDePieza.setBorderPainted(false);
+        botonDePieza.setBounds(34,180,60,60);
+        botonDePieza.addActionListener(this);
 
         //Paneles y frames
         panelPartida.add(labelTablero);
+
+        panelPartida.add(botonDePieza);
         panelInicio.add(label);
         frameInicio.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameInicio.pack();
         framePartida.pack();
-        frameCargarPartida.add(labelPoint);
         frameCargarPartida.pack();
         frameInicio.setVisible(true);
-
     }
 
     public static void main(String[] args){
@@ -159,6 +163,12 @@ public class GUI implements ActionListener {
             }else{
                 labelTablero.setIcon(tablero);
             }
+        }else if(e.getSource()==botonDePieza){
+            JLabel labelPoint = new JLabel(point);
+            panelPartida.add(labelPoint);
+            labelPoint.setBounds(34,240,60,60);
+            panelPartida.setComponentZOrder(labelPoint,1);
+
         }
     }
 }

@@ -2,31 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5416e54-0eed-4ef0-a460-15fe96241d1c" name="Changes" comment="Exception">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/Ajedrez.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/excepciones/CoronacionAvanzando.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/excepciones/CoronacionCapturando.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/excepciones/EnroqueCorto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/excepciones/EnroqueLargo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/excepciones/MovimientoInvalido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/excepciones/PartidaFinalizadoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/excepciones/SintaxisInvalida.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/partida/Casilla.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/partida/ColorPiezas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/partida/Jugador.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/partida/Movimiento.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/partida/Partida.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/partida/Tablero.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Alfil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Caballo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Dama.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Peon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Pieza.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Rey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Torre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/point.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/point.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/tablero.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/tablero.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/partida/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ajedrez/partida/Movimiento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/partida/Movimiento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ajedrez/partida/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/partida/Partida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ajedrez/partida/Tablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/partida/Tablero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ajedrez/piezas/Caballo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Caballo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ajedrez/piezas/Rey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Rey.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ajedrez/piezas/Torre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Torre.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,25 +43,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Usuario-PC/Desktop/components-SplitPaneDemo2Project",
-    "nodejs_package_manager_path": "npm"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario-PC/Desktop/components-SplitPaneDemo2Project&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Usuario-PC\Desktop\Programacion II\ProyGUI_Eliath\ProyGUI\src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.GUI">
     <configuration name="GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GUI" />
+      <option name="MAIN_CLASS_NAME" value="ajedrez.partida.GUI" />
+      <module name="ProyGUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ajedrez.partida.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ajedrez.GUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ajedrez.GUI" />
       <module name="ProyGUI" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -86,6 +83,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.GUI" />
+        <item itemvalue="Application.ajedrez.GUI" />
       </list>
     </recent_temporary>
   </component>
@@ -113,7 +111,8 @@
       <workItem from="1660251307994" duration="11000" />
       <workItem from="1660265273726" duration="605000" />
       <workItem from="1660506227439" duration="282000" />
-      <workItem from="1661356260735" duration="6316000" />
+      <workItem from="1661356260735" duration="15335000" />
+      <workItem from="1661447615043" duration="23666000" />
     </task>
     <task id="LOCAL-00001" summary="Hola mundo">
       <created>1658775915675</created>

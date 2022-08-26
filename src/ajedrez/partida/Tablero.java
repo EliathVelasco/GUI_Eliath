@@ -10,6 +10,9 @@ import java.util.Arrays;
 public class Tablero {
     private static final int LARGO_TABLERO = 8;
     private static final int ANCHO_TABLERO = 8;
+
+
+
     private Casilla[][] casillas;
 
     public Tablero() {
@@ -27,10 +30,10 @@ public class Tablero {
         casillas[0][5] = new Casilla(new Alfil(ColorPiezas.BLANCAS));
         casillas[7][2] = new Casilla(new Alfil(ColorPiezas.NEGRAS));
         casillas[7][5] = new Casilla(new Alfil(ColorPiezas.NEGRAS));
-        casillas[0][3] = new Casilla(new Dama(ColorPiezas.BLANCAS));
-        casillas[7][3] = new Casilla(new Dama(ColorPiezas.NEGRAS));
-        casillas[0][4] = new Casilla(new Rey(ColorPiezas.BLANCAS));
-        casillas[7][4] = new Casilla(new Rey(ColorPiezas.NEGRAS));
+        casillas[0][4] = new Casilla(new Dama(ColorPiezas.BLANCAS));
+        casillas[7][4] = new Casilla(new Dama(ColorPiezas.NEGRAS));
+        casillas[0][3] = new Casilla(new Rey(ColorPiezas.BLANCAS));
+        casillas[7][3] = new Casilla(new Rey(ColorPiezas.NEGRAS));
 
         for (int i = 0; i < ANCHO_TABLERO; i++) {
             casillas[1][i] = new Casilla(new Peon(ColorPiezas.BLANCAS));
@@ -62,7 +65,9 @@ public class Tablero {
 
         return tableroCompleto;
     }
-
+    public Casilla[][] getCasillas() {
+        return casillas;
+    }
     public void hacerMovimiento(Movimiento movimiento) throws MovimientoInvalido {
 
         try {

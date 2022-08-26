@@ -2,7 +2,6 @@ package ajedrez.partida;
 import ajedrez.excepciones.*;
 
 import java.util.Arrays;
-import java.util.regex.*;
 
 public class Movimiento {
     protected final int [] coordenadasIniciales = new int[2];
@@ -10,23 +9,19 @@ public class Movimiento {
     private final Jugador jugadorQueRealizoLaJugada;
 
     public Movimiento(String jugada, Jugador jugador) throws SintaxisInvalida {
-        if (!(Pattern.matches("[a-h][1-8][a-h][1-8]", jugada.toLowerCase()))) {
-            throw new SintaxisInvalida("Sintaxis no valida");
-        }
+        //Fila
+        coordenadasIniciales[0] = transformarFilaIngresadaEnIndice(jugada.charAt(0));
+        //Columnna
+        coordenadasIniciales[1] = transformarFilaIngresadaEnIndice(jugada.charAt(1));
 
-
-
-        coordenadasIniciales[0] = transformarFilaIngresadaEnIndice(jugada.charAt(1));
-        coordenadasIniciales[1] = transformarColumnaIngresadaEnIndice(jugada.charAt(0));
-
-        coordenadasFinales[0] = transformarFilaIngresadaEnIndice(jugada.charAt(3));
+        /*coordenadasFinales[0] = transformarFilaIngresadaEnIndice(jugada.charAt(3));
         coordenadasFinales[1] = transformarColumnaIngresadaEnIndice(jugada.charAt(2));
-
+*/
         this.jugadorQueRealizoLaJugada = jugador;
     }
 
     private int transformarFilaIngresadaEnIndice(char fila){
-        return Character.getNumericValue(fila)-1;
+        return Character.getNumericValue(fila);
     }
 
     private int transformarColumnaIngresadaEnIndice(char columna) {
@@ -69,4 +64,5 @@ public class Movimiento {
     public ColorPiezas getColorDeJugador() {
         return jugadorQueRealizoLaJugada.getColor();
     }
+
 }

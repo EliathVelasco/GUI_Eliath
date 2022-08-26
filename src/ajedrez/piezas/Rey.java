@@ -2,8 +2,6 @@ package ajedrez.piezas;
 import ajedrez.excepciones.*;
 import ajedrez.partida.*;
 import java.util.ArrayList;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Rey extends Pieza {
@@ -23,12 +21,11 @@ public class Rey extends Pieza {
         }
     }
     /*
-    * El rey tampoco clava las piezas, por lo que hay que ver que mismo hacemos aqui*/
+     * El rey tampoco clava las piezas, por lo que hay que ver que mismo hacemos aqui*/
 
     @Override
     public ArrayList<ArrayList<int[]>> obtenerListaDeCoordenadasPosibles(Movimiento movimiento) throws EnroqueCorto, EnroqueLargo{
         coordenadasPosibles.clear();
-        ArrayList<int []> aux = new ArrayList<>();
         if(primerMovimiento){
             if(color == ColorPiezas.BLANCAS){
                 if(Arrays.equals(movimiento.getCoordenadasIniciales(), new int[]{0,4}) && Arrays.equals(movimiento.getCoordenadasFinales(), new int[]{0,7})){
@@ -49,25 +46,37 @@ public class Rey extends Pieza {
         }
 
 
-        
-
         if (movimiento.getFilaInicial() < 7){
-            aux.add(new int[] {movimiento.getFilaInicial()+1, movimiento.getColumnaInicial()});
-            if (movimiento.getColumnaInicial() > 0) aux.add(new int[] {movimiento.getFilaInicial()+1, movimiento.getColumnaInicial()-1});
-            if (movimiento.getColumnaInicial() < 7) aux.add(new int[] {movimiento.getFilaInicial()+1, movimiento.getColumnaInicial()+1});
+            agregarALaLista(new int[] {movimiento.getFilaInicial()+1, movimiento.getColumnaInicial()});
+            if (movimiento.getColumnaInicial() > 0) agregarALaLista(new int[] {movimiento.getFilaInicial()+1, movimiento.getColumnaInicial()-1});
+            if (movimiento.getColumnaInicial() < 7) agregarALaLista(new int[] {movimiento.getFilaInicial()+1, movimiento.getColumnaInicial()+1});
         }
 
         if (movimiento.getFilaInicial() > 0){
-            aux.add(new int[] {movimiento.getFilaInicial()-1, movimiento.getColumnaInicial()});
-            if (movimiento.getColumnaInicial() > 0) aux.add(new int[] {movimiento.getFilaInicial()-1, movimiento.getColumnaInicial()-1});
-            if (movimiento.getColumnaInicial() < 7) aux.add(new int[] {movimiento.getFilaInicial()-1, movimiento.getColumnaInicial()+1});
+            agregarALaLista(new int[] {movimiento.getFilaInicial()-1, movimiento.getColumnaInicial()});
+            if (movimiento.getColumnaInicial() > 0) agregarALaLista(new int[] {movimiento.getFilaInicial()-1, movimiento.getColumnaInicial()-1});
+            if (movimiento.getColumnaInicial() < 7) agregarALaLista(new int[] {movimiento.getFilaInicial()-1, movimiento.getColumnaInicial()+1});
         }
 
-        if (movimiento.getColumnaInicial() > 0) aux.add(new int[] {movimiento.getFilaInicial(), movimiento.getColumnaInicial()-1});
-        if (movimiento.getColumnaInicial() < 7) aux.add(new int[] {movimiento.getFilaInicial(), movimiento.getColumnaInicial()+1});
+        if (movimiento.getColumnaInicial() > 0) agregarALaLista(new int[] {movimiento.getFilaInicial(), movimiento.getColumnaInicial()-1});
+        if (movimiento.getColumnaInicial() < 7) agregarALaLista(new int[] {movimiento.getFilaInicial(), movimiento.getColumnaInicial()+1});
 
-        coordenadasPosibles.add(aux);
 
         return coordenadasPosibles;
+    }
+
+    private void agregarALaLista(int[] coordenadas) {
+        ArrayList<int []> aux = new ArrayList<>();
+        aux.add(coordenadas);
+        coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
+        aux.clear();
+    }
+
+    public boolean esSuPrimerMovimiento(){
+        return primerMovimiento;
+    }
+
+    public void quitarPrimerMovimiento() {
+        primerMovimiento = false;
     }
 }

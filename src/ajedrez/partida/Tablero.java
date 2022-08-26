@@ -128,6 +128,7 @@ public class Tablero {
     }
 
     private void hacerEnroqueCorto(Movimiento movimiento) {
+
     }
 
 

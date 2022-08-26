@@ -227,29 +227,39 @@ public class GUI implements ActionListener {
         for (int i = 0; i < obtenerCantidadTotalMovimientos(movimiento); i++) {
             arrayListDePuntos.add(new JLabel(point));
         }
+
         for (JLabel labelDePunto : arrayListDePuntos) {
             //int i = arrayListDePuntos.indexOf(labelDePunto); //0 -> 13
             panelPartida.add(labelDePunto);
 
         }
+        int aux2 = 0;
 
         for (int j = 0; j < porqueriaLarga(movimiento).size(); j++) {
             for (int aux = 0; aux < porqueriaLarga(movimiento).get(j).size(); aux++) {
 
-                arrayListDePuntos.get(aux).setBounds(34 + 60 * ((porqueriaLarga(movimiento).get(j).get(aux)[1])), 120 + 60 * (porqueriaLarga(movimiento).get(j).get(aux)[0]), 60, 60);
-                panelPartida.setComponentZOrder(arrayListDePuntos.get(aux), 1);
+                arrayListDePuntos.get(aux2).setBounds(34 + 60 * ((porqueriaLarga(movimiento).get(j).get(aux)[1])), 120 + 60 * (porqueriaLarga(movimiento).get(j).get(aux)[0]), 60, 60);
+                panelPartida.setComponentZOrder(arrayListDePuntos.get(aux2), 1);
+                aux2++;
             }
         }
     }
 
 
     private double obtenerCantidadTotalMovimientos(Movimiento movimiento) throws CoronacionAvanzando, EnroqueLargo, EnroqueCorto, CoronacionCapturando {
+
         double cantidadTotal = 0;
-        for (ArrayList<int[]> array : porqueriaLarga(movimiento)) {
+        for(int i=0;i<porqueriaLarga(movimiento).size();i++){
+            for (int j=0; j<porqueriaLarga(movimiento).get(i).size();j++){
+                cantidadTotal++;
+            }
+        }
+
+        /*for (ArrayList<int[]> array : porqueriaLarga(movimiento)) {
             for (int[] subArray : array) {
                 cantidadTotal += 1;
             }
-        }
+        }*/
         return cantidadTotal;
     }
 

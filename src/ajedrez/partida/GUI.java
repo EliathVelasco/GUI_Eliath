@@ -1,13 +1,13 @@
 package ajedrez.partida;
 
 import ajedrez.excepciones.*;
+import ajedrez.piezas.*;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class GUI implements ActionListener {
     private final JFrame frameInicio = new JFrame("Chess");
@@ -22,12 +22,14 @@ public class GUI implements ActionListener {
 
     //Botón prueba
     private Partida partida = new Partida();
+    private Movimiento movimientoActualBlanco = new Movimiento(partida.getJugadorBlanco());
 
+    private Movimiento movimientoActualNegro = new Movimiento(partida.getJugadorNegro());
     private JButton[][] botonesEnTablero = new JButton[8][8];
     private final ImageIcon point = new ImageIcon("img/point.png");
     private final JPanel panelPartida = new JPanel();
 
-    public GUI() {
+    public GUI() throws SintaxisInvalida {
 
         //Paneles
         JPanel panelInicio = new JPanel();
@@ -139,6 +141,9 @@ public class GUI implements ActionListener {
 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
+
+                BotonDeGUI mio = new BotonDeGUI();
+
                 botonesEnTablero[i][j] = new JButton("" + i + j);
                 panelPartida.add(botonesEnTablero[i][j]);
                 botonesEnTablero[i][j].addActionListener(this);
@@ -157,7 +162,7 @@ public class GUI implements ActionListener {
         frameInicio.setVisible(true);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SintaxisInvalida {
 
         new GUI();
     }
@@ -199,61 +204,132 @@ public class GUI implements ActionListener {
         if (verificarQueEsBotonDeCasilla(e.getSource())) {
             try {
                 if (partida.getColorTurnoActual() == ColorPiezas.BLANCAS) {
-                    crearPuntosDeMovimiento(preguntarMovimiento(e.getActionCommand(), partida.getJugadorNegro()));
-                    partida.getTablero().hacerMovimiento(preguntarMovimiento(e.getActionCommand(), partida.getJugadorBlanco()));
+
+                    if(movimientoActualBlanco.getCoordenadasIniciales()==null){
+                        crearPuntosDeMovimiento(preguntarCoordenadasIniciales(e.getActionCommand(), movimientoActualBlanco));
+                        System.out.println(movimientoActualBlanco+"antes"+"B");
+                    }else{
+
+                        if(partida.getTablero().hacerMovimiento(preguntarCordenadasFinales(e.getActionCommand(), movimientoActualBlanco))){
+                            partida.getTablero().getCasillas()[movimientoActualBlanco.getFilaInicial()][movimientoActualBlanco.getColumnaInicial()].getPieza();
+                            //labelsDePiezasBlancas.setBounds(,,60,60);
+
+                            //
+                            //Mover Label
+                        }
+                        System.out.println(movimientoActualBlanco+"despuessss"+"B");
+
+                        partida.setTurnoActual(ColorPiezas.NEGRAS);
+                        System.out.println("Turno sig:"+partida.getColorTurnoActual());
+
+                        movimientoActualBlanco = null;
+                        movimientoActualBlanco = new Movimiento(partida.getJugadorBlanco());
+                    }
 
                 } else if (partida.getColorTurnoActual() == ColorPiezas.NEGRAS) {
-                    crearPuntosDeMovimiento(preguntarMovimiento(e.getActionCommand(), partida.getJugadorNegro()));
-                    partida.getTablero().hacerMovimiento(preguntarMovimiento(e.getActionCommand(), partida.getJugadorNegro()));
-
+                    if(movimientoActualNegro.getCoordenadasIniciales()==null){
+                        crearPuntosDeMovimiento(preguntarCoordenadasIniciales(e.getActionCommand(), movimientoActualNegro));
+                        System.out.println(movimientoActualNegro+"antes"+"N");
+                    }else{
+                        crearPuntosDeMovimiento(preguntarCordenadasFinales(e.getActionCommand(), movimientoActualNegro));
+                        System.out.println(movimientoActualNegro+"despuessss"+"N");
+                        partida.setTurnoActual(ColorPiezas.BLANCAS);
+                        System.out.println("Turno sig:"+partida.getColorTurnoActual());
+                        movimientoActualNegro = null;
+                        movimientoActualNegro = new Movimiento(partida.getJugadorNegro());
+                    }
                 }
 
             } catch (SintaxisInvalida | MovimientoInvalido | CoronacionAvanzando | CoronacionCapturando | EnroqueCorto |
                      EnroqueLargo ex) {
+                System.out.println(ex.getMessage());
                 throw new RuntimeException(ex);
             }
         }
     }
 
-    public Movimiento preguntarMovimiento(String s, Jugador jugador) throws SintaxisInvalida {
+    private Movimiento preguntarCordenadasFinales(String coordenadasFinales, Movimiento movimiento) {
+        movimiento.setCoordenadasFinales(coordenadasFinales);
+        return movimiento;
+    }
+
+    private Movimiento preguntarCoordenadasIniciales(String coordenadasIniciales, Movimiento movimiento) {
+        movimiento.setCoordenadasIniciales(coordenadasIniciales);
+        return movimiento;
+    }
+
+    public Movimiento preguntarJugada(String s, Jugador jugador) throws SintaxisInvalida {
 
         return new Movimiento(s, jugador);
 
     }
 
-    private void crearPuntosDeMovimiento(Movimiento movimiento) throws SintaxisInvalida, CoronacionAvanzando, EnroqueLargo, EnroqueCorto, CoronacionCapturando {
+    private void crearPuntosDeMovimiento(Movimiento movimiento) throws SintaxisInvalida, CoronacionAvanzando, EnroqueLargo, EnroqueCorto, CoronacionCapturando, MovimientoInvalido {
         ArrayList<JLabel> arrayListDePuntos = new ArrayList<>();
-
         for (int i = 0; i < obtenerCantidadTotalMovimientos(movimiento); i++) {
             arrayListDePuntos.add(new JLabel(point));
         }
-        for (JLabel labelDePunto : arrayListDePuntos) {
-            //int i = arrayListDePuntos.indexOf(labelDePunto); //0 -> 13
-            panelPartida.add(labelDePunto);
 
+        for (JLabel labelDePunto : arrayListDePuntos) {
+            panelPartida.add(labelDePunto);
         }
 
-        for (int j = 0; j < porqueriaLarga(movimiento).size(); j++) {
-            for (int aux = 0; aux < porqueriaLarga(movimiento).get(j).size(); aux++) {
+        int aux2 = 0;
 
-                arrayListDePuntos.get(aux).setBounds(34 + 60 * ((porqueriaLarga(movimiento).get(j).get(aux)[1])), 120 + 60 * (porqueriaLarga(movimiento).get(j).get(aux)[0]), 60, 60);
-                panelPartida.setComponentZOrder(arrayListDePuntos.get(aux), 1);
+
+        ArrayList<ArrayList<int[]>> listaDeCoordenadas;
+        listaDeCoordenadas = partida.getTablero().getCasillas()[movimiento.getFilaInicial()][movimiento.getColumnaInicial()].getPieza().obtenerListaDeCoordenadasPosibles(movimiento);
+
+        for (int i = 0; i < listaDeCoordenadas.size(); i++) {
+            for (int j = 0; j < listaDeCoordenadas.get(i).size(); j++) {
+                if (partida.getTablero().getCasillas()[listaDeCoordenadas.get(i).get(j)[0]][listaDeCoordenadas.get(i).get(j)[1]].hayPieza()) {
+                    partida.getTablero().quitarMovimientosNoAlcanzables(listaDeCoordenadas.get(i), j);
+                }
+                if (partida.getTablero().getCasillas()[movimiento.getFilaInicial()][movimiento.getColumnaInicial()].getPieza() instanceof Peon){
+                    if (listaDeCoordenadas.get(i).size() != 0 && listaDeCoordenadas.get(i).get(j)[1] != movimiento.getColumnaInicial()){
+                        if (!(partida.getTablero().getCasillas()[listaDeCoordenadas.get(i).get(j)[0]][listaDeCoordenadas.get(i).get(j)[1]].hayPieza())){
+                            listaDeCoordenadas.get(i).clear();
+                        }
+                    }
+                }
             }
         }
+
+        if (!(partida.getTablero().listaDeCoordenadasTieneAlMenosUna(listaDeCoordenadas))){
+            throw new MovimientoInvalido("Esa pieza no se puede mover a ningun lado pendejo");
+        }
+
+        for (int j = 0; j < listaDeCoordenadas.size(); j++) {
+            for (int aux = 0; aux < listaDeCoordenadas.get(j).size(); aux++) {
+
+                arrayListDePuntos.get(aux2).setBounds(34 + 60 * ((listaDeCoordenadas.get(j).get(aux)[1])), 120 + 60 * (listaDeCoordenadas.get(j).get(aux)[0]), 60, 60);
+                panelPartida.setComponentZOrder(arrayListDePuntos.get(aux2), 1);
+                aux2++;
+            }
+        }
+
+        for (int i = 0; i < listaDeCoordenadas.size(); i++) {
+            for (int j = 0; j < listaDeCoordenadas.get(i).size(); j++) {
+                partida.getTablero().getCasillas()[listaDeCoordenadas.get(i).get(j)[0]][listaDeCoordenadas.get(i).get(j)[1]].subrayar();
+            }
+        }
+
     }
 
 
-    private double obtenerCantidadTotalMovimientos(Movimiento movimiento) throws CoronacionAvanzando, EnroqueLargo, EnroqueCorto, CoronacionCapturando {
+    private double obtenerCantidadTotalMovimientos(Movimiento movimiento) throws CoronacionAvanzando, EnroqueLargo, EnroqueCorto, CoronacionCapturando, MovimientoInvalido {
+
         double cantidadTotal = 0;
-        for (ArrayList<int[]> array : porqueriaLarga(movimiento)) {
-            for (int[] subArray : array) {
-                cantidadTotal += 1;
+        for (int i = 0; i < listaDeCoordenadas(movimiento).size(); i++) {
+            for (int j = 0; j < listaDeCoordenadas(movimiento).get(i).size(); j++) {
+                cantidadTotal++;
             }
         }
+
         return cantidadTotal;
     }
 
-    private ArrayList<ArrayList<int[]>> porqueriaLarga(Movimiento movimiento) throws CoronacionAvanzando, EnroqueLargo, EnroqueCorto, CoronacionCapturando {
+    private ArrayList<ArrayList<int[]>> listaDeCoordenadas(Movimiento movimiento) throws CoronacionAvanzando, EnroqueLargo, EnroqueCorto, CoronacionCapturando, MovimientoInvalido {
         return partida.getTablero().getCasillas()[movimiento.getFilaInicial()][movimiento.getColumnaInicial()].getPieza().obtenerListaDeCoordenadasPosibles(movimiento);
     }
 }

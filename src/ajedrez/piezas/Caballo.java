@@ -54,4 +54,5 @@ public class Caballo extends Pieza {
         aux.add(coordenadas);
         coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
         aux.clear();
-    }}
+    }
+}

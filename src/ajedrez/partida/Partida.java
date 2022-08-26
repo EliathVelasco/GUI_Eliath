@@ -39,6 +39,9 @@ public class Partida {
     public ColorPiezas getColorTurnoActual() {
         return colorTurnoActual;
     }
+    public void setTurnoActual(ColorPiezas colorTurnoActual) {
+        this.colorTurnoActual = colorTurnoActual;
+    }
 
     public Jugador getJugadorBlanco() {
         return jugadorBlanco;

@@ -2,6 +2,7 @@ package ajedrez.piezas;
 import ajedrez.excepciones.*;
 import ajedrez.partida.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Peon extends Pieza {
     private boolean primerMovimiento;
@@ -20,22 +21,33 @@ public class Peon extends Pieza {
         }
     }
 
-    public ArrayList<ArrayList<int[]>> obtenerListaDeCoordenadasPosibles (Movimiento movimiento) throws CoronacionAvanzando, CoronacionCapturando{
+    public ArrayList<ArrayList<int[]>> obtenerListaDeCoordenadasPosibles (Movimiento movimiento) throws CoronacionAvanzando, CoronacionCapturando, MovimientoInvalido {
+        if (movimiento.getCoordenadasFinales()!= null){
 
+            if (!(movimiento.getColumnaInicial()+1 == movimiento.getColumnaFinal() || movimiento.getColumnaInicial()-1 == movimiento.getColumnaFinal() || movimiento.getColumnaInicial() == movimiento.getColumnaFinal())){
+                throw new MovimientoInvalido("Jugada invalida, columna no alcanzable");
+            }
+        }
         if (color == ColorPiezas.BLANCAS) {
             agregarMovimientosPeonesBlancas(movimiento);
             buscarMovimientosDeCapturaBlanca(movimiento);
-            if (movimiento.getFilaFinal() == 7) {
-                asignarTipoDeCoronacion(movimiento);
+            if(movimiento.getCoordenadasFinales() != null){
+                if (movimiento.getFilaFinal() == 7 && movimiento.getFilaInicial() == 6) {
+                    asignarTipoDeCoronacion(movimiento);
+                }
             }
+
+
         }else{
             agregarMovimientosPeonesNegros(movimiento);
             buscarMovimientosDeCapturaNegras(movimiento);
-            if (movimiento.getFilaFinal() == 0){
-                asignarTipoDeCoronacion(movimiento);
+            if(movimiento.getCoordenadasFinales()!= null){
+                if (movimiento.getFilaFinal() == 0 && movimiento.getFilaInicial() == 1){
+                    asignarTipoDeCoronacion(movimiento);
+                }
             }
-        }
 
+        }
         return coordenadasPosibles;
     }
 
@@ -56,12 +68,11 @@ public class Peon extends Pieza {
         if (primerMovimiento) {
             for (int i = movimiento.getFilaInicial() + 1; i < movimiento.getFilaInicial() + 3; i++) {
                 aux.add(new int[]{i, movimiento.getColumnaInicial()});
-                primerMovimiento = false;
             }
             coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
             aux.clear();
         } else{
-            aux.add(new int[]{movimiento.getFilaInicial() + 1, movimiento.getColumnaFinal()});
+            aux.add(new int[]{movimiento.getFilaInicial() + 1, movimiento.getColumnaInicial()});
             coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
             aux.clear();
         }
@@ -73,39 +84,44 @@ public class Peon extends Pieza {
         if (primerMovimiento) {
             for (int i = movimiento.getFilaInicial() - 1; i > movimiento.getFilaInicial() - 3; i--) {
                 aux.add(new int[]{i, movimiento.getColumnaInicial()});
-                primerMovimiento = false;
             }
             coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
             aux.clear();
         } else{
-            aux.add(new int[]{movimiento.getFilaInicial() - 1, movimiento.getColumnaFinal()});
+            aux.add(new int[]{movimiento.getFilaInicial() - 1, movimiento.getColumnaInicial()});
             coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
             aux.clear();
         }
 
     }
     public void buscarMovimientosDeCapturaBlanca(Movimiento movimiento){
-
         ArrayList<int[]> aux = new ArrayList<>();
         if(movimiento.getColumnaInicial()>0){
             aux.add(new int[]{movimiento.getFilaInicial()+1, movimiento.getColumnaInicial()-1});
-
+            coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
+            aux.clear();
         }
         if(movimiento.getColumnaInicial()<7 ){
             aux.add(new int[]{movimiento.getFilaInicial()+1, movimiento.getColumnaInicial()+1});
+            coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
+            aux.clear();
         }
-        coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
-        aux.clear();
     }
     public void buscarMovimientosDeCapturaNegras(Movimiento movimiento){
         ArrayList<int[]> aux = new ArrayList<>();
         if(movimiento.getColumnaInicial()<7){
             aux.add(new int[]{movimiento.getFilaInicial()-1, movimiento.getColumnaInicial()+1});
+            coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
+            aux.clear();
         }
         if (movimiento.getColumnaInicial()>0){
             aux.add(new int[]{movimiento.getFilaInicial()-1, movimiento.getColumnaInicial()-1});
+            coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
+            aux.clear();
         }
-        coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
-        aux.clear();
+    }
+
+    public boolean esSuPrimerMovimiento() {
+        return primerMovimiento;
     }
 }

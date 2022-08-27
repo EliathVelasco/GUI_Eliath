@@ -107,19 +107,42 @@ public class GUI implements ActionListener {
         labelsDePiezasNegras[0][6] = new JLabel(caballoNegro);
         labelsDePiezasNegras[0][7] = new JLabel(torreNegra);
 
-        //Arrays para labels de piezas
+        /* Arrays para labels de piezas
         JLabel[][] labelsDePiezasBlancas = new JLabel[2][8];
 
-        labelsDePiezasBlancas[0][0] = new JLabel(torreBlanca);
+       labelsDePiezasBlancas[0][0] = new JLabel(torreBlanca);
         labelsDePiezasBlancas[0][1] = new JLabel(caballoBlanco);
         labelsDePiezasBlancas[0][2] = new JLabel(alfilBlanco);
         labelsDePiezasBlancas[0][4] = new JLabel(damaBlanca);
         labelsDePiezasBlancas[0][3] = new JLabel(reyBlanco);
         labelsDePiezasBlancas[0][5] = new JLabel(alfilBlanco);
         labelsDePiezasBlancas[0][6] = new JLabel(caballoBlanco);
-        labelsDePiezasBlancas[0][7] = new JLabel(torreBlanca);
+        labelsDePiezasBlancas[0][7] = new JLabel(torreBlanca);*/
+
+        BotonConImagen[][] arrayDeBotonesConImg = new BotonConImagen[8][8];
+
+        arrayDeBotonesConImg[0][0] = new BotonConImagen(new JButton("" + 0 + 0), new JLabel(torreBlanca));
+        arrayDeBotonesConImg[0][1] = new BotonConImagen(new JButton("" + 0 + 1), new JLabel(caballoBlanco));
+        arrayDeBotonesConImg[0][2] = new BotonConImagen(new JButton("" + 0 + 2), new JLabel(alfilBlanco));
+        arrayDeBotonesConImg[0][4] = new BotonConImagen(new JButton("" + 0 + 4), new JLabel(damaBlanca));
+        arrayDeBotonesConImg[0][3] = new BotonConImagen(new JButton("" + 0 + 3), new JLabel(reyBlanco));
+        arrayDeBotonesConImg[0][5] = new BotonConImagen(new JButton("" + 0 + 5), new JLabel(alfilBlanco));
+        arrayDeBotonesConImg[0][6] = new BotonConImagen(new JButton("" + 0 + 6), new JLabel(caballoBlanco));
+        arrayDeBotonesConImg[0][7] = new BotonConImagen(new JButton("" + 0 + 7), new JLabel(caballoBlanco));
+
+        //BotonesConImagenVacia
+        for (int i = 2; i < 6; i++) {
+            for (int j = 0; j < 8; j++) {
+                arrayDeBotonesConImg[i][j] = new BotonConImagen(new JButton("" + i + j), new JLabel());
+                panelPartida.add(arrayDeBotonesConImg[i][j]);
+                arrayDeBotonesConImg[i][j].addActionListener(this);
+                arrayDeBotonesConImg[i][j].setBounds((33 + 60 * j), (120 + 60 * i), 60, 60);
+                ocultarBotonDePieza(arrayDeBotonesConImg[i][j]);
+            }
+        }
 
         for (int i = 0; i < 8; i++) {
+
             labelsDePiezasNegras[0][i].setBounds((33 + 60 * i), 540, 60, 60);
             panelPartida.add(labelsDePiezasNegras[0][i]);
         }
@@ -137,19 +160,6 @@ public class GUI implements ActionListener {
             labelsDePiezasBlancas[1][i] = new JLabel((peonBlanco));
             panelPartida.add(labelsDePiezasBlancas[1][i]);
             labelsDePiezasBlancas[1][i].setBounds((33 + 60 * i), 180, 60, 60);
-        }
-
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
-
-                BotonDeGUI mio = new BotonDeGUI();
-
-                botonesEnTablero[i][j] = new JButton("" + i + j);
-                panelPartida.add(botonesEnTablero[i][j]);
-                botonesEnTablero[i][j].addActionListener(this);
-                botonesEnTablero[i][j].setBounds((33 + 60 * j), (120 + 60 * i), 60, 60);
-                ocultarBotonDePieza(botonesEnTablero[i][j]);
-            }
         }
 
         //Paneles y frames
@@ -209,12 +219,14 @@ public class GUI implements ActionListener {
                         crearPuntosDeMovimiento(preguntarCoordenadasIniciales(e.getActionCommand(), movimientoActualBlanco));
                         System.out.println(movimientoActualBlanco+"antes"+"B");
                     }else{
+                        if(validarMovimiento(preguntarCordenadasFinales(e.getActionCommand(), movimientoActualBlanco)){
 
-                        if(partida.getTablero().hacerMovimiento(preguntarCordenadasFinales(e.getActionCommand(), movimientoActualBlanco))){
-                            partida.getTablero().getCasillas()[movimientoActualBlanco.getFilaInicial()][movimientoActualBlanco.getColumnaInicial()].getPieza();
+                        }
+                        moverPiezaEnPantalla(movimientoActualBlanco);
+
+                        if(partida.getTablero().hacerMovimientoEnLaLogica(preguntarCordenadasFinales(e.getActionCommand(), movimientoActualBlanco))){
+                            //partida.getTablero().getCasillas()[movimientoActualBlanco.getFilaInicial()][movimientoActualBlanco.getColumnaInicial()].getPieza();
                             //labelsDePiezasBlancas.setBounds(,,60,60);
-
-                            //
                             //Mover Label
                         }
                         System.out.println(movimientoActualBlanco+"despuessss"+"B");
@@ -247,6 +259,15 @@ public class GUI implements ActionListener {
             }
         }
     }
+
+    private boolean validarMovimiento(Movimiento movimiento) throws MovimientoInvalido {
+        partida.getTablero().hacerMovimientoEnLaLogica(movimiento);
+        return true;
+    }
+
+    private void moverPiezaEnPantalla(Movimiento movimiento) {
+    }
+
 
     private Movimiento preguntarCordenadasFinales(String coordenadasFinales, Movimiento movimiento) {
         movimiento.setCoordenadasFinales(coordenadasFinales);

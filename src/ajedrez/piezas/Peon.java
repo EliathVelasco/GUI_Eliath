@@ -48,7 +48,7 @@ public class Peon extends Pieza {
             }
 
         }
-        return coordenadasPosibles;
+        return listaPadreDeCoordenadasPosibles;
     }
 
     private void asignarTipoDeCoronacion(Movimiento movimiento) throws CoronacionAvanzando, CoronacionCapturando{
@@ -62,34 +62,34 @@ public class Peon extends Pieza {
         this.primerMovimiento=false;
     }
     public void agregarMovimientosPeonesBlancas(Movimiento movimiento) {
-        coordenadasPosibles.clear();
+        listaPadreDeCoordenadasPosibles.clear();
         ArrayList<int[]> aux = new ArrayList<>();
 
         if (primerMovimiento) {
             for (int i = movimiento.getFilaInicial() + 1; i < movimiento.getFilaInicial() + 3; i++) {
                 aux.add(new int[]{i, movimiento.getColumnaInicial()});
             }
-            coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
+            listaPadreDeCoordenadasPosibles.add((ArrayList<int[]>) aux.clone());
             aux.clear();
         } else{
             aux.add(new int[]{movimiento.getFilaInicial() + 1, movimiento.getColumnaInicial()});
-            coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
+            listaPadreDeCoordenadasPosibles.add((ArrayList<int[]>) aux.clone());
             aux.clear();
         }
     }
     public void agregarMovimientosPeonesNegros(Movimiento movimiento) {
-        coordenadasPosibles.clear();
+        listaPadreDeCoordenadasPosibles.clear();
         ArrayList<int[]> aux = new ArrayList<>();
 
         if (primerMovimiento) {
             for (int i = movimiento.getFilaInicial() - 1; i > movimiento.getFilaInicial() - 3; i--) {
                 aux.add(new int[]{i, movimiento.getColumnaInicial()});
             }
-            coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
+            listaPadreDeCoordenadasPosibles.add((ArrayList<int[]>) aux.clone());
             aux.clear();
         } else{
             aux.add(new int[]{movimiento.getFilaInicial() - 1, movimiento.getColumnaInicial()});
-            coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
+            listaPadreDeCoordenadasPosibles.add((ArrayList<int[]>) aux.clone());
             aux.clear();
         }
 
@@ -98,12 +98,12 @@ public class Peon extends Pieza {
         ArrayList<int[]> aux = new ArrayList<>();
         if(movimiento.getColumnaInicial()>0){
             aux.add(new int[]{movimiento.getFilaInicial()+1, movimiento.getColumnaInicial()-1});
-            coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
+            listaPadreDeCoordenadasPosibles.add((ArrayList<int[]>) aux.clone());
             aux.clear();
         }
         if(movimiento.getColumnaInicial()<7 ){
             aux.add(new int[]{movimiento.getFilaInicial()+1, movimiento.getColumnaInicial()+1});
-            coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
+            listaPadreDeCoordenadasPosibles.add((ArrayList<int[]>) aux.clone());
             aux.clear();
         }
     }
@@ -111,12 +111,12 @@ public class Peon extends Pieza {
         ArrayList<int[]> aux = new ArrayList<>();
         if(movimiento.getColumnaInicial()<7){
             aux.add(new int[]{movimiento.getFilaInicial()-1, movimiento.getColumnaInicial()+1});
-            coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
+            listaPadreDeCoordenadasPosibles.add((ArrayList<int[]>) aux.clone());
             aux.clear();
         }
         if (movimiento.getColumnaInicial()>0){
             aux.add(new int[]{movimiento.getFilaInicial()-1, movimiento.getColumnaInicial()-1});
-            coordenadasPosibles.add((ArrayList<int[]>) aux.clone());
+            listaPadreDeCoordenadasPosibles.add((ArrayList<int[]>) aux.clone());
             aux.clear();
         }
     }

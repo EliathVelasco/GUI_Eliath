@@ -8,8 +8,8 @@ import java.util.Arrays;
 
 
 public class Tablero {
-    private static final int LARGO_TABLERO = 8;
-    private static final int ANCHO_TABLERO = 8;
+    public static final int LARGO_TABLERO =8;
+    public static final int ANCHO_TABLERO =8;
     private Casilla[][] casillas;
     private ArrayList<Pieza> piezas;
 
@@ -18,7 +18,7 @@ public class Tablero {
         colocarPiezasEnElTablero();
     }
 
-    public boolean hacerMovimiento(Movimiento movimiento) throws MovimientoInvalido {
+    public boolean hacerMovimientoEnLaLogica(Movimiento movimiento) throws MovimientoInvalido {
         try {
             if (movimientoEsValido(movimiento)) {
                 if (movimientoEsUnaCaptura(movimiento)) {

@@ -1,11 +1,6 @@
 package ajedrez.partida;
 
-import ajedrez.excepciones.*;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import ajedrez.excepciones.MovimientoInvalido;
 
 public class Partida {
     private final Tablero tablero;
@@ -23,6 +18,11 @@ public class Partida {
         jugadorNegro = new Jugador(ColorPiezas.NEGRAS);
         colorTurnoActual = ColorPiezas.BLANCAS;
         tablero = new Tablero();
+    }
+
+    public boolean validarMovimiento(Movimiento movimiento) throws MovimientoInvalido {
+        tablero.hacerMovimientoEnLaLogica(movimiento);
+        return true;
     }
 
     public void jugarPartida() {

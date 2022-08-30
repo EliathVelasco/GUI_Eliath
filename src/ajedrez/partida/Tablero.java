@@ -381,7 +381,15 @@ public class Tablero {
                 casillas[listaDeCoordenadas.get(i).get(j)[0]][listaDeCoordenadas.get(i).get(j)[1]].subrayar();
             }
         }
-
+        System.out.println("Lista mas grande {");
+        for (int i=0; i<listaDeCoordenadas.size();i++){
+            System.out.println("\tLista chiquita #"+i+" {");
+            for (int j =0; j<listaDeCoordenadas.get(i).size();j++){
+                System.out.println("\t\t"+ Arrays.toString(listaDeCoordenadas.get(i).get(j)));
+            }
+            System.out.println("\t}");
+        }
+        System.out.println("}");
         System.out.println(this);
 
         quitarSubrayado();

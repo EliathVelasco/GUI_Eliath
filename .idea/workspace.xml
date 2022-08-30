@@ -2,25 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5416e54-0eed-4ef0-a460-15fe96241d1c" name="Changes" comment="Exception">
-      <change afterPath="$PROJECT_DIR$/src/ajedrez/partida/BotonConImagen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img/bordeDeCasilla.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ajedrez/partida/FrameCargarPartida.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ajedrez/partida/BotonDeGUI.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ajedrez/partida/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/partida/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ajedrez/piezas/Dama.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Dama.java" afterDir="false" />
-    </list>
-    <list id="74ab4ec4-cf04-4912-9281-50f3f7451955" name="Changes by jeanp" comment="">
-      <change beforePath="$PROJECT_DIR$/src/ajedrez/partida/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/partida/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ajedrez/partida/Partida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/partida/Partida.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ajedrez/partida/Tablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/partida/Tablero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ajedrez/piezas/Alfil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Alfil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ajedrez/piezas/Caballo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Caballo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ajedrez/piezas/Dama.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Dama.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ajedrez/piezas/Peon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Peon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ajedrez/piezas/Pieza.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Pieza.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ajedrez/piezas/Rey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Rey.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ajedrez/piezas/Torre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ajedrez/piezas/Torre.java" afterDir="false" />
     </list>
-    <list id="2adf08ff-5eb1-45c8-abda-c905960e025f" name="Changes by Juan" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,33 +28,11 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/ajedrez/piezas/Dama.java">
-      <ranges>
-        <range start1="3" end1="3" start2="3" end2="5" changelist="f5416e54-0eed-4ef0-a460-15fe96241d1c" />
-        <range start1="6" end1="7" start2="8" end2="9" changelist="74ab4ec4-cf04-4912-9281-50f3f7451955" />
-        <range start1="17" end1="21" start2="19" end2="19" changelist="74ab4ec4-cf04-4912-9281-50f3f7451955" />
-        <range start1="22" end1="22" start2="20" end2="23" changelist="74ab4ec4-cf04-4912-9281-50f3f7451955" />
-        <range start1="23" end1="37" start2="24" end2="27" changelist="74ab4ec4-cf04-4912-9281-50f3f7451955" />
-        <range start1="38" end1="117" start2="28" end2="28" changelist="74ab4ec4-cf04-4912-9281-50f3f7451955" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/ajedrez/partida/GUI.java">
-      <ranges>
-        <range start1="109" end1="110" start2="109" end2="110" changelist="f5416e54-0eed-4ef0-a460-15fe96241d1c" />
-        <range start1="112" end1="113" start2="112" end2="113" changelist="f5416e54-0eed-4ef0-a460-15fe96241d1c" />
-        <range start1="119" end1="120" start2="119" end2="147" changelist="f5416e54-0eed-4ef0-a460-15fe96241d1c" />
-        <range start1="122" end1="122" start2="149" end2="150" changelist="f5416e54-0eed-4ef0-a460-15fe96241d1c" />
-        <range start1="141" end1="154" start2="169" end2="169" changelist="f5416e54-0eed-4ef0-a460-15fe96241d1c" />
-        <range start1="211" end1="211" start2="226" end2="227" changelist="f5416e54-0eed-4ef0-a460-15fe96241d1c" />
-        <range start1="212" end1="214" start2="228" end2="233" changelist="f5416e54-0eed-4ef0-a460-15fe96241d1c" />
-        <range start1="215" end1="217" start2="234" end2="234" changelist="f5416e54-0eed-4ef0-a460-15fe96241d1c" />
-        <range start1="249" end1="249" start2="266" end2="275" changelist="74ab4ec4-cf04-4912-9281-50f3f7451955" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2CRqW5hGf151QqfS4FbFK8LAD8R" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -152,7 +117,11 @@
       <workItem from="1661447615043" duration="24471000" />
       <workItem from="1661479442336" duration="316000" />
       <workItem from="1661525105964" duration="12415000" />
-      <workItem from="1661562517699" duration="2705000" />
+      <workItem from="1661562517699" duration="3484000" />
+      <workItem from="1661642503431" duration="5367000" />
+      <workItem from="1661698336829" duration="2055000" />
+      <workItem from="1661785736498" duration="8732000" />
+      <workItem from="1661876455590" duration="2039000" />
     </task>
     <task id="LOCAL-00001" summary="Hola mundo">
       <created>1658775915675</created>
